@@ -5,6 +5,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 4px;
+    margin-block-end: 2rem;
 }
 
 .languages span {

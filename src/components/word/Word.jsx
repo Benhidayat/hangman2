@@ -1,9 +1,9 @@
 import './Word.css';
 
-const Word = () => {
+const Word = ({letterElements}) => {
   return (
-    <section>
-      
+    <section className='word'>
+      {letterElements}
     </section>
   )
 }

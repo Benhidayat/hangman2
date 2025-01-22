@@ -1,0 +1,21 @@
+.word {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.word .letter {
+    width: 40px;
+    height: 40px;
+    background-color: #323232;
+    border-bottom: 1px solid #F9F4DA;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 23.45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 3rem;
+}
