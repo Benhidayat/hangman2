@@ -1,3 +1,8 @@
-div {
-  color: red;
+main {
+  max-width: 600px;
+  height: 730px;
+  background-color: #282726;
+  margin: 4rem auto;
+  display: flex;
+  justify-content: center;
 }

@@ -10,6 +10,12 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Hanken Grotesk', Arial, sans-serif;
+  background-color: #1d1d1d;
+  color: #ffff;
+}
+
 img {
   width: 100%;
   height: auto;
