@@ -16,4 +16,5 @@ header p {
     font-weight: 500;
     line-height: 18.24px;
     max-width: 350px;
+    margin-block-end: 1rem;
 }

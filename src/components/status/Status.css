@@ -1,0 +1,23 @@
+section {
+    width: 100%;
+    max-width: 350px;
+    height: 60px;
+    background-color: #10A95B;
+    text-align: center;
+    padding: .375em;
+    border-radius: 4px;
+}
+
+section h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 26.06px;
+    color: #F9F4DA;
+}
+
+section p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 20.85px;
+    color: #F9F4DA;
+}
