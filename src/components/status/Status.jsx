@@ -2,7 +2,7 @@ import './Status.css';
 
 const Status = () => {
   return (
-    <section>
+    <section className='game__status'>
       <h2>You win!</h2>
       <p>Well done! 🎉</p>
     </section>

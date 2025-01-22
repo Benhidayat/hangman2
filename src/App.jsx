@@ -1,12 +1,14 @@
 import './App.css';
-import Header from './components/header/Header';
-import Status from './components/status/Status';
+import { Header, Status, Languages } from './components';
+
 
 const App = () => {
+  
   return (
     <main>
       <Header />
       <Status />
+      <Languages />
     </main>
   )
 }
