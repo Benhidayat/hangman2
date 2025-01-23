@@ -24,4 +24,14 @@
 
     background-color: #FCBA29;
     color: #1E1E1E;
+
+    cursor: pointer;
+}
+
+.keyboard button.right {
+    background-color: #10A95B;
+}
+
+.keyboard button.wrong {
+    background-color: #EC5D49;
 }
