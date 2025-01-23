@@ -14,10 +14,7 @@ const App = () => {
     !currentWord.includes(letter)
   )).length;
 
-  const isGameWon = [...currentWord].every(letter => {
-    return guessedLetters.includes(letter);
-  })
-
+  const isGameWon = [...currentWord].every(letter => guessedLetters.includes(letter));
   const isGameLost = wrongGuessedCount >= languages.length -1;
   const isGameOver = isGameWon || isGameLost
 
@@ -72,7 +69,9 @@ const App = () => {
   return (
     <main>
       <Header />
-      <Status />
+      <Status gameWon={isGameWon}
+              gameLost={isGameLost}
+              gameOver={isGameOver}/>
       <Languages />
       <Word letterElements={letterElements}/>
       <Keyboard keyboardElms={keyboardElements}/>
