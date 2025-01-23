@@ -1,12 +1,25 @@
 import './App.css';
-import { Header, Status, Languages, Word, Keyboard } from './components';
+import { Header, Status, Languages, Word, Keyboard, NewGame } from './components';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { languages } from './data/languages';
 
 const App = () => {
   // state value
   const [currentWord, setCurrentWord] = useState('react');
   const [guessedLetters, setGuessedLetter] = useState([]);
+
+  // derived value
+  const wrongGuessedCount = guessedLetters.filter(letter => (
+    !currentWord.includes(letter)
+  )).length;
+
+  const isGameWon = [...currentWord].every(letter => {
+    return guessedLetters.includes(letter);
+  })
+
+  const isGameLost = wrongGuessedCount >= languages.length -1;
+  const isGameOver = isGameWon || isGameLost
 
   // static value
   const alphabets = 'abcdefghijklmnopqrstuvwxyz';
@@ -18,6 +31,12 @@ const App = () => {
         ? prevGuessed
         : [...prevGuessed, letter]          
     ))
+  }
+
+  // start new game
+  const startNewGame = () => {
+    setCurrentWord('react');
+    setGuessedLetter([]);
   }
 
   // letter
@@ -57,6 +76,7 @@ const App = () => {
       <Languages />
       <Word letterElements={letterElements}/>
       <Keyboard keyboardElms={keyboardElements}/>
+      {isGameOver ? <NewGame  newGame={startNewGame}/> : null}
     </main>
   )
 }

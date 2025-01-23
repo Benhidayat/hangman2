@@ -1,0 +1,12 @@
+.new__game {
+    cursor: pointer;
+    width: 228px;
+    padding: .8em;
+    border-radius: 4px;
+    background-color: #11B5E5;
+    border: 1px solid #d7d7d7;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 20.85px;
+    font-family: 'Hanken Grotesk';
+  }

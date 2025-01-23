@@ -6,6 +6,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    margin-block-end: 1.5rem;
 }
 
 .keyboard button {
