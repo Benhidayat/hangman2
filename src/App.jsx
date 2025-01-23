@@ -22,11 +22,11 @@ const App = () => {
 
   // letter
   const letterElements = [...currentWord].map((letter, index) => {
-
+    
     return (
       <span key={index}
             className='letter'>
-        {letter.toLocaleUpperCase()}
+        {guessedLetters.includes(letter) ? letter.toLocaleUpperCase() :''}
       </span>
     )
   })
@@ -35,7 +35,7 @@ const App = () => {
   const keyboardElements = [...alphabets].map(letter => {
     const isInside = [...currentWord].includes(letter) && guessedLetters.includes(letter);
     const isNotInside = guessedLetters.includes(letter) && ![...currentWord].includes(letter);
-    
+
     const className = clsx({
       right: isInside,
       wrong: isNotInside
