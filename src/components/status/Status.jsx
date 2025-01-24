@@ -1,15 +1,23 @@
 import clsx from 'clsx';
 import './Status.css';
+import { languages } from '../../data/languages';
+import { getFarewellText } from '../../data/utils';
 
 const Status = ({
   gameWon, 
   gameLost, 
-  gameOver
+  gameOver,
+  lastGuess,
+  wrongCount,
 
 }) => {
-
+  
   const getGameStats = () => {
-    if (!gameOver) return null;
+    if (!gameOver && lastGuess) {
+      const lostLangText = getFarewellText(languages[wrongCount -1].name);
+      console.log("text is " + lostLangText)
+       return <p>{lostLangText}</p>
+    };
 
     if (gameWon) {
       return (
@@ -31,6 +39,7 @@ const Status = ({
   const gameStatClassName = clsx('game__status', {
       won: gameWon,
       lost: gameLost,
+      farewell: !gameLost && lastGuess
   })
 
   return (

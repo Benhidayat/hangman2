@@ -1,7 +1,6 @@
 import './App.css';
 import { Header, Status, Languages, Word, Keyboard, NewGame } from './components';
 import { useState } from 'react';
-import clsx from 'clsx';
 import { languages } from './data/languages';
 
 const App = () => {
@@ -17,7 +16,9 @@ const App = () => {
   const isGameWon = [...currentWord].every(letter => guessedLetters.includes(letter));
   const isGameLost = wrongGuessedCount >= languages.length -1;
   const isGameOver = isGameWon || isGameLost
-  const lastGuessedLetter = guessedLetters[guessedLetters.length -1];
+  const lastGuessedLetter = guessedLetters[guessedLetters.length -1]
+  const incorrectLastGuess = lastGuessedLetter && ![...currentWord].includes(lastGuessedLetter)
+  
 
   // static value
   const alphabets = 'abcdefghijklmnopqrstuvwxyz';
@@ -42,12 +43,14 @@ const App = () => {
       <Header />
       <Status gameWon={isGameWon}
               gameLost={isGameLost}
-              gameOver={isGameOver}/>
+              gameOver={isGameOver}
+              lastGuess={incorrectLastGuess}
+              wrongCount={wrongGuessedCount}
+              guessed={guessedLetters}/>
       <Languages guessCount={wrongGuessedCount}/>
       <Word word={currentWord}
             guessed={guessedLetters}
-            gameLost={isGameLost}
-            lastLetter={lastGuessedLetter}/>
+            gameLost={isGameLost}/>
       <Keyboard alphabets={alphabets}
                 currentWord={currentWord}
                 guessedLetters={guessedLetters}
