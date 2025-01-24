@@ -47,34 +47,19 @@ const App = () => {
     )
   })
 
-  // keyboard
-  const keyboardElements = [...alphabets].map(letter => {
-    const isInside = [...currentWord].includes(letter) && guessedLetters.includes(letter);
-    const isNotInside = guessedLetters.includes(letter) && ![...currentWord].includes(letter);
-
-    const className = clsx({
-      right: isInside,
-      wrong: isNotInside
-    })
-    return (
-      <button key={letter}
-              type='button'
-              className={className}
-              onClick={() => addGuessLetter(letter)}>
-        {letter.toLocaleUpperCase()}
-      </button>
-    )
-  })
-
   return (
     <main>
       <Header />
       <Status gameWon={isGameWon}
               gameLost={isGameLost}
               gameOver={isGameOver}/>
-      <Languages />
+      <Languages guessCount={wrongGuessedCount}/>
       <Word letterElements={letterElements}/>
-      <Keyboard keyboardElms={keyboardElements}/>
+      <Keyboard alphabets={alphabets}
+                currentWord={currentWord}
+                guessedLetters={guessedLetters}
+                gameOver={isGameOver}
+                addGuess={addGuessLetter}/>
       {isGameOver ? <NewGame  newGame={startNewGame}/> : null}
     </main>
   )
