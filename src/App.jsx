@@ -54,7 +54,8 @@ const App = () => {
               gameLost={isGameLost}
               gameOver={isGameOver}/>
       <Languages guessCount={wrongGuessedCount}/>
-      <Word letterElements={letterElements}/>
+      <Word word={currentWord}
+            guessed={guessedLetters}/>
       <Keyboard alphabets={alphabets}
                 currentWord={currentWord}
                 guessedLetters={guessedLetters}
