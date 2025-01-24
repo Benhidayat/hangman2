@@ -17,6 +17,7 @@ const App = () => {
   const isGameWon = [...currentWord].every(letter => guessedLetters.includes(letter));
   const isGameLost = wrongGuessedCount >= languages.length -1;
   const isGameOver = isGameWon || isGameLost
+  const lastGuessedLetter = guessedLetters[guessedLetters.length -1];
 
   // static value
   const alphabets = 'abcdefghijklmnopqrstuvwxyz';
@@ -36,17 +37,6 @@ const App = () => {
     setGuessedLetter([]);
   }
 
-  // letter
-  const letterElements = [...currentWord].map((letter, index) => {
-    
-    return (
-      <span key={index}
-            className='letter'>
-        {guessedLetters.includes(letter) ? letter.toLocaleUpperCase() :''}
-      </span>
-    )
-  })
-
   return (
     <main>
       <Header />
@@ -55,7 +45,9 @@ const App = () => {
               gameOver={isGameOver}/>
       <Languages guessCount={wrongGuessedCount}/>
       <Word word={currentWord}
-            guessed={guessedLetters}/>
+            guessed={guessedLetters}
+            gameLost={isGameLost}
+            lastLetter={lastGuessedLetter}/>
       <Keyboard alphabets={alphabets}
                 currentWord={currentWord}
                 guessedLetters={guessedLetters}

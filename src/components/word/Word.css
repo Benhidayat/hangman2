@@ -19,3 +19,11 @@
     align-items: center;
     margin-block-end: 3rem;
 }
+
+.word .letter.correct {
+    color: #10A95B;
+}
+
+.word .letter.incorrect {
+    color: #BA2A2A;
+}
