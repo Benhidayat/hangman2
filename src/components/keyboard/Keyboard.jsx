@@ -25,7 +25,9 @@ const Keyboard = ({
               type='button'
               className={btnClassName}
               onClick={() => addGuess(letter)}
-              disabled={gameOver}>
+              disabled={gameOver}
+              aria-label={`letter ${letter}`}
+              aria-disabled={guessedLetters.includes(letter)}>
         {letter.toUpperCase()}
       </button>
     )

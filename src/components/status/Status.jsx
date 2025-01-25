@@ -15,7 +15,6 @@ const Status = ({
   const getGameStats = () => {
     if (!gameOver && lastGuess) {
       const lostLangText = getFarewellText(languages[wrongCount -1].name);
-      console.log("text is " + lostLangText)
        return <p>{lostLangText}</p>
     };
 
@@ -43,7 +42,9 @@ const Status = ({
   })
 
   return (
-    <section className={gameStatClassName}>
+    <section className={gameStatClassName}
+             aria-live='polite'
+             role='status'>
       {getGameStats()}
     </section>
   )

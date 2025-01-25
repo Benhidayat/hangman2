@@ -18,7 +18,7 @@ const App = () => {
   const isGameOver = isGameWon || isGameLost
   const lastGuessedLetter = guessedLetters[guessedLetters.length -1]
   const incorrectLastGuess = lastGuessedLetter && ![...currentWord].includes(lastGuessedLetter)
-  
+  const remainingAttempt = languages.length - 1 - wrongGuessedCount;
 
   // static value
   const alphabets = 'abcdefghijklmnopqrstuvwxyz';
@@ -51,6 +51,20 @@ const App = () => {
       <Word word={currentWord}
             guessed={guessedLetters}
             gameLost={isGameLost}/>
+
+      {/* visually hidden aria-live region for status update  */}
+      <region className='sr-only' aria-live='polite' role='status'>
+        <p>
+          {currentWord.includes(lastGuessedLetter)
+            ?`Correct! the letter ${lastGuessedLetter} is in the word.`
+            : `Sorry, the letter ${lastGuessedLetter} is not in the word.`}
+          You have {remainingAttempt} attempt left.
+        </p>
+        <p>current word: {[...currentWord].map(letter => (
+          guessedLetters.includes(letter) ? letter + '.' : ''
+        ))}</p>
+      </region>
+
       <Keyboard alphabets={alphabets}
                 currentWord={currentWord}
                 guessedLetters={guessedLetters}
